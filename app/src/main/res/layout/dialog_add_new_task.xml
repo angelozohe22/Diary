@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/color_transparent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="11dp"
+        android:layout_margin="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_dialog_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_add_dialog"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cet_new_task_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="32dp"
+                android:hint="@string/dialog_add_et_title"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="@id/title_dialog_add"
+                app:layout_constraintTop_toBottomOf="@id/title_dialog_add"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_new_task_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_round"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:lines="1"
+                    android:maxLength="1000"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cet_new_task_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/dialog_add_et_desc"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="@id/cet_new_task_title"
+                app:layout_constraintTop_toBottomOf="@id/cet_new_task_title"
+                app:layout_constraintRight_toRightOf="@id/cet_new_task_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_new_task_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/card_round"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:gravity="top|left"
+                    android:maxLength="1000"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cet_new_task_end"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/dialog_add_et_end_task"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="@id/cet_new_task_desc"
+                app:layout_constraintTop_toBottomOf="@id/cet_new_task_desc"
+                app:layout_constraintRight_toRightOf="@id/cet_new_task_desc">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_new_task_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_round"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="10"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_new_task"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_corner_outline"
+                android:text="@string/btn_ok_title"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cet_new_task_end" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_cancel_new_task"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_corner"
+                android:text="@string/btn_cancel_title"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btn_add_new_task"
+                app:layout_constraintTop_toBottomOf="@id/cet_new_task_end" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

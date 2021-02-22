@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Agenda</string>
+    <string name="title_see_menu">Ver</string>
+    <string name="floating_add_task_title">Add Task</string>
+    <string name="title_delete_menu">Delete</string>
+    <string name="title_edit_menu">Editar</string>
+    <string name="hint_input_comment">Escribe tu comentario aquí...</string>
+    <string name="title_add_dialog">Nueva actividad</string>
+    <string name="dialog_add_et_title">Título</string>
+    <string name="dialog_add_et_desc">Contenido</string>
+    <string name="dialog_add_et_end_task">Finaliza (dd/MM/yyyy)</string>
+    <string name="btn_ok_title">Aceptar</string>
+    <string name="btn_cancel_title">Cancelar</string>
+    <string name="title_delete_dialog">¿Seguro quieres eliminar Nombre de Tarea?</string>
+    <string name="message_dialog_delete">Recuerda: Se van a borrar todos los comentarios.</string>
+    <string name="title_edit_dialog">Editar Actividad</string>
+    <string name="title_start_task">Creada:</string>
+    <string name="title_end_task">Finaliza:</string>
+    <string name="title_delete_request">¿Seguro quieres eliminar</string>
+
+</resources>

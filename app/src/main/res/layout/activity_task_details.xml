@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.TaskDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar_support_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_details"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ToolbarTheme"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title_task_name"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="Tarea de Matemática" />
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_start_task_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        tools:text="Creada: 20/02"
+        android:textSize="14sp"
+        android:textColor="@color/color_Gray_Web"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_support_details"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_end_task_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        tools:text="Finaliza: 20/02"
+        android:textSize="14sp"
+        android:textColor="@color/color_Gray_Web"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_support_details"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc_task_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        tools:text="asdasdalsdnahdhsdajdhahdahshdkashkjashdkjahskjdahskjdhaskjhdakshdkjash"
+        android:textSize="14sp"
+        android:textColor="@color/color_Gray_Web"
+        app:layout_constraintLeft_toLeftOf="@id/tv_start_task_details"
+        app:layout_constraintRight_toRightOf="@id/tv_end_task_details"
+        app:layout_constraintTop_toBottomOf="@id/tv_start_task_details"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_comments_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        tools:text="Comentarios(2)"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/color_Gray_Web"
+        app:layout_constraintLeft_toLeftOf="@id/tv_desc_task_details"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc_task_details"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:maxHeight="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_input_details"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_img_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_input_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/background_input"
+            android:hint="@string/hint_input_comment"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="150dp"
+            android:maxLength="1000"
+            android:overScrollMode="always"
+            android:padding="6dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/img_input_details"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/shadow_edittext"
+        android:layout_width="0dp"
+        android:layout_height="7dp"
+        android:background="@drawable/shadow_bottom_top"
+        app:layout_constraintLeft_toLeftOf="@id/input_container"
+        app:layout_constraintRight_toRightOf="@id/input_container"
+        app:layout_constraintBottom_toTopOf="@id/input_container"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_comments_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_comments_quantity"
+        app:layout_constraintTop_toBottomOf="@id/tv_comments_quantity"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/shadow_edittext"
+        tools:listitem="@layout/item_comment"/>
+
+    <View
+        android:id="@+id/view_curtain_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_curtain"
+        android:elevation="4dp"
+        tools:targetApi="lollipop"
+        android:visibility="gone"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
