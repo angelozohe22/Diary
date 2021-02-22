@@ -198,25 +198,20 @@ class TaskDetailsActivity : AppCompatActivity() {
                         val newEnd   = etNewTaskEnd.text.toString().trim()
 
                         //Only show title error
-                        if(!isNullOrEmpty(newTitle)){
-                            cetNewTaskTitle.error = when {
-                                newTitle.length < 2 -> { "Ingrese un título." }
-                                else -> null
-                            }
+                        cetNewTaskTitle.error = when{
+                            isNullOrEmpty(newTitle) -> { "Ingrese un título." }
+                            else -> null
                         }
 
                         //Only show desc error
-                        if(!isNullOrEmpty(newDesc)){
-                            cetNewTaskDesc.error = when {
-                                newDesc.length < 2 -> { "Ingrese un contendio." }
-                                else -> null
-                            }
-                        }
+                        cetNewTaskDesc.error =
+                                if(isNullOrEmpty(newDesc))  "Ingrese un contendio."
+                                else  null
 
                         //Only show endTask
                         if(!isNullOrEmpty(newEnd)){
                             cetNewTaskEnd.error = when {
-                                newEnd.length < 2 -> { "Ingrese una fecha" }
+                                newEnd.length < 10 -> { "Ingrese una fecha" }
                                 else -> null
                             }
                         }
@@ -242,7 +237,9 @@ class TaskDetailsActivity : AppCompatActivity() {
                             isEnabled = !isNullOrEmpty(newTitle) &&
                                         !isNullOrEmpty(newDesc) &&
                                         !isNullOrEmpty(newEnd) &&
-                                        validateDate(newEnd)
+                                        validateDate(newEnd) &&
+                                        validateDay(newEnd) &&
+                                        validateMonth(newEnd)
                             if(isEnabled) setBackgroundResource(R.drawable.btn_corner_outline)
                             else setBackgroundResource(R.drawable.btn_corner_dissable)
 
