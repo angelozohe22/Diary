@@ -139,7 +139,9 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener, OnCheckBoxClickLi
                         isEnabled = !isNullOrEmpty(newTitle) &&
                                     !isNullOrEmpty(newDesc) &&
                                     !isNullOrEmpty(newEnd) &&
-                                    validateDate(newEnd)
+                                    validateDate(newEnd) &&
+                                    validateDay(newEnd) &&
+                                    validateMonth(newEnd)
                         if(isEnabled) setBackgroundResource(R.drawable.btn_corner_outline)
                         else setBackgroundResource(R.drawable.btn_corner_dissable)
 
