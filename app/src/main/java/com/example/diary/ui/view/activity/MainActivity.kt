@@ -3,6 +3,7 @@ package com.example.diary.ui.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -16,6 +17,7 @@ import com.example.diary.*
 import com.example.diary.ui.view.adapters.OnCheckBoxClickListener
 import com.example.diary.ui.view.adapters.OnTaskClickListener
 import com.example.diary.ui.view.adapters.TaskAdapter
+import com.example.diary.ui.view.fragment.DatePickerFragment
 import com.example.kmmsharedmodule.ViewModelBinding
 import com.example.kmmsharedmodule.data.local.DbDriver
 import com.example.kmmsharedmodule.domain.model.Task
@@ -103,6 +105,8 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener, OnCheckBoxClickLi
                 etNewTaskDesc       = view.findViewById(R.id.et_new_task_desc)
                 etNewTaskEnd        = view.findViewById(R.id.et_new_task_end)
 
+                etNewTaskEnd?.setOnClickListener { showDatePickerDialog() }
+
                 //Current date
                 val sdfDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
                 val currentDate = sdfDate.format(Date())
@@ -183,6 +187,19 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener, OnCheckBoxClickLi
                 }
             }
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year ->
+            onDateSelected(day, month+1, year)
+        }
+        datePicker.show(supportFragmentManager, "datePicker")
+    }
+
+    private fun onDateSelected(day: Int, month: Int, year: Int){
+        val customDay = (if(day<10) "0" else "").plus(day)
+        val customMonth = (if(month<10) "0" else "").plus(month)
+        etNewTaskEnd?.setText("$customDay/${customMonth}/$year")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
