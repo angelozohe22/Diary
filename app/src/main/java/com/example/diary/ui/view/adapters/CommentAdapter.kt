@@ -3,10 +3,11 @@ package com.example.diary.ui.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diary.R
-import com.example.diary.databinding.ItemCommentBinding
-import com.example.diary.domain.model.Comment
+import com.example.kmmsharedmodule.domain.model.Comment
 
 /**
  * Created by Angelo on 2/21/2021
@@ -33,12 +34,12 @@ class CommentAdapter:RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
     override fun getItemCount(): Int = _commentsList.size
 
     inner class CommentViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        private val binding = ItemCommentBinding.bind(itemView)
+        private val itemImgComment         = itemView.findViewById<AppCompatImageView>(R.id.item_img_comment)
+        private val itemTvMessageComment    = itemView.findViewById<AppCompatTextView>(R.id.item_tv_message_comment)
+
         fun bindView(comment: Comment){
-            binding.apply {
                 //itemImgComment -> cargar imagen
                 itemTvMessageComment.text = comment.message
-            }
         }
     }
 

@@ -1,2 +1,12 @@
+include ':kmmsharedmodule'
 include ':app'
 rootProject.name = "Diary"
+
+//pluginManagement{
+//    repositories {
+//        google()
+//        jcenter()
+//        gradlePluginPortal()
+//        mavenCentral()
+//    }
+//}
