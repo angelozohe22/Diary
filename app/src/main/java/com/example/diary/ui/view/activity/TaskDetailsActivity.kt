@@ -17,6 +17,7 @@ import com.badoo.reaktive.observable.observeOn
 import com.badoo.reaktive.scheduler.mainScheduler
 import com.example.diary.*
 import com.example.diary.ui.view.adapters.CommentAdapter
+import com.example.diary.ui.view.fragment.DatePickerFragment
 import com.example.kmmsharedmodule.ViewModelBinding
 import com.example.kmmsharedmodule.data.local.DbDriver
 import com.example.kmmsharedmodule.domain.model.Comment
@@ -197,6 +198,8 @@ class TaskDetailsActivity : AppCompatActivity() {
                     etNewTaskDesc       = view.findViewById(R.id.et_new_task_desc)
                     etNewTaskEnd        = view.findViewById(R.id.et_new_task_end)
 
+                    etNewTaskEnd?.setOnClickListener { showDatePickerDialog() }
+
                     btnEditTask?.apply {
                         isEnabled = false
                         setBackgroundResource(R.drawable.btn_corner_dissable)
@@ -283,6 +286,19 @@ class TaskDetailsActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year ->
+            onDateSelected(day, month+1, year)
+        }
+        datePicker.show(supportFragmentManager, "datePicker")
+    }
+
+    private fun onDateSelected(day: Int, month: Int, year: Int){
+        val customDay = (if(day<10) "0" else "").plus(day)
+        val customMonth = (if(month<10) "0" else "").plus(month)
+        etNewTaskEnd?.setText("$customDay/${customMonth}/$year")
     }
 
     override fun onStart() {
